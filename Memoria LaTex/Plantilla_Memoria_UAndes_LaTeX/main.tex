@@ -1,0 +1,320 @@
+% ==============================
+% Plantilla LaTeX – Memoria UAndes (Overleaf) con logo
+% Basada en la “Plantilla Memoria 2023”.
+% Compilación recomendada: XeLaTeX (para Times New Roman) + Biber (si usas APA/Harvard con biblatex)
+% Alternativa: pdfLaTeX (usa NewTX como “similar a Times”).
+% ==============================
+\documentclass[12pt,oneside]{report}
+
+% --- Idioma y codificación ---
+\usepackage[spanish,es-lcroman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} % para pdfLaTeX
+
+% --- Tipografía Times New Roman (Xe/Lua) o alternativa (pdfLaTeX) ---
+\usepackage{ifxetex,ifluatex}
+\newif\ifxetexorluatex
+\ifxetex \xetexorluatextrue \fi
+\ifluatex \xetexorluatextrue \fi
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \setmainfont{Times New Roman}
+\else
+  % pdfLaTeX: fuente similar (NewTX)
+  \usepackage{newtxtext,newtxmath}
+\fi
+
+% --- Márgenes ---
+\usepackage[letterpaper,top=2.5cm,bottom=2.5cm,left=3cm,right=3cm]{geometry}
+
+% --- Formato del párrafo e interlineado ---
+\usepackage{setspace}
+\onehalfspacing               % interlineado 1.5
+\setlength{\parindent}{0pt}   % sin sangría
+\setlength{\parskip}{12pt}    % espacio tras punto aparte
+
+% --- Misceláneos útiles ---
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz} % para las líneas de la portada
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{justification=centering,singlelinecheck=false}
+
+% --- Numeración continua de tablas e ilustraciones ---
+% Evita que los contadores se reinicien en cada capítulo.
+% Ejemplo: Tabla 1, Tabla 2, Tabla 3... / Ilustración 1, Ilustración 2...
+\usepackage{chngcntr}
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}
+\counterwithout{equation}{chapter} % ecuaciones correlativas: (1), (2), (3)...
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\theequation}{\arabic{equation}}
+
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+
+% --- Etiquetas y nombres en español ---
+\addto\captionsspanish{
+  \renewcommand{\contentsname}{ÍNDICE GENERAL}
+  \renewcommand{\listtablename}{ÍNDICE DE TABLAS}
+  \renewcommand{\listfigurename}{ÍNDICE DE ILUSTRACIONES}
+  \renewcommand{\figurename}{Ilustración}
+  \renewcommand{\tablename}{Tabla}
+}
+
+% --- Estilo de títulos ---
+% Capítulos: MAYÚSCULAS y negritas, tamaño 12 (igual que la plantilla Word),
+% comenzando al tope de la página (sin el descuelgue por defecto de "report")
+\titleformat{\chapter}[block]
+  {\normalfont\bfseries\normalsize\MakeUppercase}{\thechapter.}{1em}{}
+\titlespacing*{\chapter}{0pt}{-\parskip}{12pt}
+% Secciones (subcapítulos): MAYÚSCULAS, sin negritas, tamaño 12
+\titleformat{\section}[block]
+  {\normalfont\normalsize\MakeUppercase}{\thesection}{1em}{}
+% Subsecciones (tercer nivel): Solo mayúscula inicial, sin negritas
+\titleformat{\subsection}[block]
+  {\normalfont\normalsize}{\thesubsection}{1em}{}
+% Subsubsecciones (cuarto nivel, si se requiere)
+\titleformat{\subsubsection}[block]
+  {\normalfont\normalsize}{\thesubsubsection}{1em}{}
+
+% --- Bibliografía (opcional con APA/Harvard) ---
+% Para activar APA/Harvard, crea un archivo references.bib en Overleaf.
+\usepackage[
+    backend=biber,
+    style=authoryear,
+    sorting=nyt,
+    sortcites=true
+]{biblatex}
+\IfFileExists{references.bib}{\addbibresource{references.bib}}{}
+
+% --- Metadatos personalizables ---
+\usepackage{etoolbox}
+\newcommand{\Titulo}{EL TÍTULO DE LA MEMORIA PUEDE OCUPAR UNAS CUATRO LÍNEAS APROXIMADAMENTE}
+\newcommand{\Autor}{Nombre Completo del Alumno}
+\newcommand{\Ciudad}{Santiago}
+\newcommand{\MesAnio}{Octubre de 2026}
+\newcommand{\ProfesorGuia}{Nombre Completo}
+\newcommand{\ProfesorCoGuia}{Nombre Completo (Si Aplica)}
+\newcommand{\Facultad}{Facultad de Ingeniería y Ciencias Aplicadas}
+\newcommand{\Universidad}{Universidad de los Andes}
+\newcommand{\Grado}{MEMORIA PARA OPTAR AL TÍTULO DE INGENIERO CIVIL \textcolor{red}{ESPECIALIDAD ESTUDIADA}}
+
+% --- Logo institucional (archivo dentro de figuras/) ---
+\newcommand{\LogoPath}{figuras/Logo Uandes.png}
+
+\begin{document}
+
+% --- Portada ---
+\pagenumbering{gobble}
+\begin{titlepage}
+  \centering
+%-------------------------------------------------------------------------------------
+  % Encabezado estilo plantilla Word: logo arriba a la izquierda, líneas en cruz
+  % y nombre de la universidad/facultad a la derecha del logo.
+  \begin{tikzpicture}[remember picture, overlay]
+    % línea horizontal (cruza todo el ancho de la página)
+    \draw[line width=2.5pt]
+      ([xshift=2cm,yshift=-6.2cm]current page.north west) --
+      ([xshift=-0.6cm,yshift=-6.2cm]current page.north east);
+    % línea vertical (baja desde cerca del borde superior y sobrepasa la horizontal)
+    \draw[line width=2.5pt]
+      ([xshift=6.1cm,yshift=-1.2cm]current page.north west) --
+      ([xshift=6.1cm,yshift=-7.4cm]current page.north west);
+    % logo institucional (si el archivo existe)
+    \IfFileExists{\LogoPath}{%
+      \node[anchor=north west, inner sep=0pt]
+        at ([xshift=2.4cm,yshift=-2.2cm]current page.north west)
+        {\includegraphics[width=2.3cm, keepaspectratio]{\LogoPath}};
+    }{}%
+    % encabezado con universidad y facultad
+    \node[anchor=north, text width=8.5cm, align=center]
+      at ([xshift=2.2cm,yshift=-2.6cm]current page.north)
+      {\large\setstretch{1.3}\hyphenpenalty=10000\exhyphenpenalty=10000
+       \MakeUppercase{\Universidad}\\ \MakeUppercase{\Facultad}};
+  \end{tikzpicture}%
+%-------------------------------------------------------------------------------------
+  \vspace*{4.6cm}
+
+  {\Large\centering\parbox{0.75\textwidth}{\centering \Titulo\par}}
+  \vspace{1.8cm}
+
+  {\large \MakeUppercase{\Autor}\par}
+  \vspace{1.8cm}
+
+  {\large \Grado\par}
+  \vspace{0.6cm}
+
+  {\large Profesor Guía: \ProfesorGuia\par}
+  \ifdefempty{\ProfesorCoGuia}{}{ {\large Profesor Co-Guía: \ProfesorCoGuia\par} }
+
+  \vfill
+
+  {\large \MakeUppercase{\Ciudad, \MesAnio}\par}
+  \vspace{0.3cm}
+
+  {\large\setstretch{1.2} \MakeUppercase{\Universidad}\\ \MakeUppercase{\Facultad}\par}
+\end{titlepage}
+
+% --- Páginas preliminares en romanos ---
+\pagenumbering{roman}
+\setcounter{page}{1}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% Agradecimientos / Dedicatoria (opcional)
+\chapter*{AGRADECIMIENTOS}
+Escribe aquí tus agradecimientos o una dedicatoria.
+%\addcontentsline{toc}{chapter}{AGRADECIMIENTOS}
+
+% Índices
+\tableofcontents
+\listoftables
+\listoffigures
+
+% Resumen (máximo una página)
+\chapter*{RESUMEN}
+% Debe presentar brevemente: problema, motivación, objetivo, metodología y principales resultados.
+\addcontentsline{toc}{chapter}{RESUMEN}
+Escribe aquí tu resumen. No debe ocupar más de una página.
+
+% --- Cuerpo del documento en arábigos ---
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\chapter{INTRODUCCIÓN}
+
+Escribe aquí tu introducción. El texto se escribe sin sangría, letra Times New Roman 12, interlineado 1.5. Después de un punto aparte, se debe saltar un espacio. Los márgenes en todo el documento son 2.5 cm. superior e inferior, y 3 cm. derecha e izquierda. Esto ya viene predeterminado por defecto en este documento. Los títulos de los capítulos van en mayúsculas y negritas. Se escribe en tercera persona.
+
+\chapter{TÍTULO DEL PRIMER CAPÍTULO}
+Los títulos de los capítulos se escriben con mayúscula y en negrita.
+
+En caso de haber ecuaciones, deberán presentarse centradas, numeradas correlativamente entre paréntesis y alineadas al margen derecho. Cada variable utilizada deberá ser definida inmediatamente después de la ecuación o en el párrafo correspondiente.
+
+Por ejemplo:
+
+\begin{equation}
+    y = \beta_0 + \beta_1x + \varepsilon
+    \label{eq:regresion_lineal}
+\end{equation}
+
+Donde \(y\) representa la variable dependiente, \(x\) la variable independiente, \(\beta_0\) el intercepto, \(\beta_1\) el coeficiente asociado a \(x\), y \(\varepsilon\) el término de error.
+
+Cuando se haga referencia a una ecuación dentro del texto, se deberá utilizar su numeración correspondiente. Por ejemplo: como se observa en la ecuación \eqref{eq:regresion_lineal}, la variable dependiente se expresa como una función lineal de la variable independiente.
+
+\section{TÍTULO DEL PRIMER SUB-CAPÍTULO}
+Los títulos de los subcapítulos se escriben con mayúscula y sin negritas.
+La primera enumeración dentro de un texto se escribe con letras: a, b, c, etc.
+
+\begin{enumerate}[label=\alph*)]
+  \item Ejemplo de enumeración.
+\end{enumerate}
+
+\begin{table}[H]
+  \centering
+  \caption{Título de la tabla.}
+  \begin{tabular}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+    \hline
+    La tabla & Está centrada \\ \hline
+    El título de la tabla & También está centrado \\ \hline
+  \end{tabular}\\[3pt]
+  {\footnotesize Fuente: Elaboración propia.}
+\end{table}
+
+Cuidar que las tablas no sean capturas de pantalla. Deben elaborarse en el mismo documento y
+mantener la consistencia en el formato.
+Dejar un espacio después de la tabla.
+
+\section{TÍTULO DEL SEGUNDO SUB-CAPÍTULO}
+Texto del subcapítulo.
+
+\chapter{OTROS EJEMPLOS}
+Las referencias deben ser en estilo Harvard. Un ejemplo es \parencite{Perez2022Articulo} o bien, en formato narrativo: \textcite{Perez2022Articulo}.
+También se pueden citar las páginas específicas \parencite[pp. 25--27]{Perez2022Articulo}.
+
+\section{EL SUB-CAPÍTULO}
+
+\subsection{Título de tercer nivel}
+Los títulos de tercer nivel solo llevan mayúscula en la primera letra y no se escriben con negritas.
+
+\subsection{Título de tercer nivel}
+Aquí se incluye un ejemplo de una ilustración. Primero se inserta la ilustración y luego el título, ambos centrados. Cada ilustración incluida en el documento debe ser mencionada en el texto y su uso debe estar justificado de acuerdo con el desarrollo del tema de memoria. Evite el uso innecesario de ellas.
+Los gráficos también se pueden considerar como ilustraciones. Cuidar que los gráficos sean de buena resolución. Evitar las capturas de pantalla pues tienden a pixelarse y romper con el formato del documento. Mantener la consistencia de formato en todas las figuras.
+
+Ejemplo de ilustración (inserta la imagen en la carpeta \texttt{figuras/}):
+
+\begin{figure}[H]
+  \centering
+  % Reemplaza "figuras/ejemplo-ilustracion" por tu archivo (sin extensión) o comenta la siguiente línea si aún no tienes imagen.
+  \includegraphics[width=0.65\textwidth]{figuras/logo-uandes.jpg}
+  \caption{Ejemplo de una ilustración.\\ \footnotesize Fuente: Elaboración propia.}
+\end{figure}
+
+Otro ejemplo de enumeración anidada:
+\begin{enumerate}[label=\alph*)]
+  \item Primer punto.
+  \begin{enumerate}[label=\roman*)]
+    \item Puedes usar números romanos.
+    \item También guiones:
+      \begin{itemize}
+        \item Con letras,
+        \item con números romanos,
+        \item o con guiones.
+      \end{itemize}
+  \end{enumerate}
+  \item Siguiente punto.
+\end{enumerate}
+
+Se pueden insertar notas a pie de página\footnote{Por ejemplo: ver Anexo 1.}.
+
+% --- Conclusiones y recomendaciones ---
+\chapter{CONCLUSIONES Y RECOMENDACIONES}
+Incluye todas las conclusiones del trabajo que den respuesta a las preguntas de investigación/objetivos propuestos y recomendaciones a futuro. Se espera que este capítulo no contenga análisis de resultados que ya se realizaron en capítulos previos, sino que solo se remita a las conclusiones del trabajo.
+
+% --- Bibliografía ---
+%\chapter{BIBLIOGRAFÍA}
+%\addcontentsline{toc}{chapter}{BIBLIOGRAFÍA}
+
+% Opción A (recomendada): usar biblatex + references.bib (ver preámbulo)
+%Descomenta la linea debajo si tu bibliografía se encuentra en references.bib
+
+\nocite{*}
+\printbibliography[title={BIBLIOGRAFÍA}]
+\addcontentsline{toc}{chapter}{BIBLIOGRAFÍA}
+
+Todas las afirmaciones relevantes realizadas en el trabajo deben contar con referencias correctas.
+Todos los planteamientos no evidentes y que no son parte del desarrollo de la memoria deben
+estar referenciados. Se recomienda utilizar un “gestionador” de referencias, como por ejemplo: Mendeley, Endnote, Zotero. Los “gestionadores” de referencia
+permiten que usted pueda ir guardando las referencias a utilizar, citarlas en el texto principal, y
+luego generar la bibliografía de manera automática. El uso de bibliografía debe seguir de manera estricta todas aquellas directrices de ética que le han sido impartidas durante su carrera.
+
+% Opción B: bibliografía manual de ejemplo (elimina si usas biblatex)
+%\begin{thebibliography}{9}
+%\bibitem{apellido2021}
+%Apellido, N. (2021). \textit{Título del libro}. Ciudad: Editorial.
+%\bibitem{harvard2021}
+%Universidad de Harvard. (2021). \textit{Cómo hacer referencias usando la notación Harvard}. Ciudad: Editorial.
+%\end{thebibliography}
+
+% --- Anexos ---
+\chapter*{ANEXOS}
+\addcontentsline{toc}{chapter}{ANEXOS}
+
+\section*{Anexo 1. Título del Anexo}
+\addcontentsline{toc}{section}{Anexo 1. Título del Anexo}
+Contenido del primer anexo.
+
+\section*{Anexo 2. Segundo Anexo}
+\addcontentsline{toc}{section}{Anexo 2. Segundo Anexo}
+Contenido del segundo anexo.
+
+% \bigskip
+% \textbf{Nota:} Puedes añadir la rúbrica y material complementario como anexos adicionales.
+
+\end{document}

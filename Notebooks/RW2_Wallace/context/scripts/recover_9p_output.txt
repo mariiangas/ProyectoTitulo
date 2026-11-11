@@ -1,0 +1,2 @@
+material 1: {'E': 29279.0, 'v': 0.2, 'ft': np.float64(0.4), 'fc0': np.float64(10.0), 'fcp': np.float64(42.8), 'fcr': np.float64(10.0), 'ecp': np.float64(0.005), 'Gt': np.float64(0.1), 'Gc': np.float64(36.0), 'pscale_t': np.float64(0.3), 'pscale_c': np.float64(0.3)}
+   lch deck 7.924190762643707 | from_stko 7.924190762643708 | max curve diff 4.441e-16

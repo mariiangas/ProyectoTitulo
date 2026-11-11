@@ -1,0 +1,53 @@
+\chapter{Introducción}
+\label{c1} % la etiqueta para referencias
+
+%Primer Sub-Capítulo
+\section{Motivación y Contexto}
+
+\textcolor{red}{\textbf{Nota: }Debe enunciarse y motivarse claramente el problema a resolver. Definir terminologia mas relevante. 
+Luego se realiza una revision breve de trabajos que han abordado el tema antes, o temas relacionados y similares. 
+Luego se propone exactamente que se va a hacer en los objetivos...}
+
+\bigskip
+
+El diseño y análisis sísmico de estructuras de hormigón armado ha evolucionado significativamente desde los enfoques elásticos lineales tradicionales hacia procedimientos basados en el desempeño, los cuales exigen una predicción precisa de los comportamientos no lineales complejos de los elementos ante solicitaciones extremas. Los muros de corte de hormigón armado constituyen el principal sistema de resistencia frente a cargas laterales y de gravedad en edificaciones de mediana y gran altura, aportando la rigidez, resistencia y capacidad de deformación necesarias para salvaguardar la estabilidad estructural ante movimientos sísmicos severos.
+
+A pesar de la existencia de herramientas avanzadas de simulación numérica mediante el método de elementos finitos (MEF), la práctica de la ingeniería estructural se enfrenta a una disyuntiva crítica en la modelación de estos componentes. Por un lado, los modelos microscópicos tridimensionales detallados demandan un costo computacional prohibitivo y una calibración sumamente compleja, lo que limita su aplicabilidad a proyectos masivos o análisis paramétricos extensos. Por otro lado, los modelos simplificados fallan en capturar fenómenos cinemáticos esenciales.
+
+En este escenario, este proyecto plantea un puente innovador entre la ingeniería estructural avanzada y la ciencia de datos. Utilizando el código de código abierto OpenSees en combinación con la interfaz gráfica avanzada STKO (Scientific ToolKit for OpenSees), se implementan macromodelos de alta fidelidad rigurosamente validados frente a evidencia experimental. El interés central de esta investigación radica en capitalizar la eficiencia computacional de estos macromodelos para ejecutar simulaciones paramétricas masivas y automatizadas. Esto permitirá generar una base de datos sintética, robusta y altamente representativa de la respuesta no lineal de muros bajo diversas configuraciones geométricas, cuantías de acero y relaciones de carga axial. En una etapa posterior, esta base de datos servirá como el conjunto de entrenamiento para modelos de Inteligencia Artificial (IA) y redes neuronales, capaces de actuar como metamodelos predictivos instantáneos, reduciendo drásticamente los tiempos de cálculo en las fases de diseño.
+
+
+\section{Objetivos}
+
+\textcolor{red}{\textbf{Nota: }Enunciar un objetivo general claro.}
+
+\bigskip 
+
+Desarrollar un marco formal de modelación numérica no lineal de alta fidelidad y una metodología automatizada para muros de hormigón armado utilizando OpenSees y STKO, validada mediante datos experimentales de referencia, con el propósito de generar una base de datos estructurada y masiva que permita el entrenamiento futuro de modelos de Inteligencia Artificial para la predicción instantánea de la respuesta estructural sísmica.
+
+\bigskip
+
+\textcolor{red}{\textbf{Nota: }Listar los objetivos especificos. Son "pasos" que claramente llegan a lograr el objetivo.}
+
+\begin{itemize}
+  \item Implementar y calibrar modelos estructurales avanzados de muros de hormigón armado en la plataforma OpenSees a través de la interfaz STKO.
+  \item Validar la precisión del modelo base analizando las curvas macroscópicas globales de fuerza-desplazamiento (lazos de histéresis, degradación de rigidez y resistencia, y efecto pinching) y las variables locales (perfiles de deformación unitaria y posición del eje neutro) frente a los ensayos experimentales históricos de Orakcal, Massone y Wallace (2006).
+  \item Establecer un esquema paramétrico masivo de simulación que abarque las variables de diseño críticas, tales como la relación de carga axial (ALR), la relación de aspecto o luz de corte (shear-span ratio), y las cuantías de refuerzo longitudinal y transversal, caracterizando la transición entre modos de falla por flexión, corte diagonal y corte por deslizamiento.
+\end{itemize}
+
+\section{Estructura de la Memoria}
+
+\textcolor{red}{\textbf{Nota: } Describir que hay en cada calpitulo de la memoria.... 
+A continuación en el \textbf{Capítulo 2} se presenta el .....
+En el \textbf{Capítulo 3}, se detalla ....}
+
+
+
+\begin{itemize}
+  \item \textbf{Capítulo 2}, Marco Teórico y Revisión Bibliográfica: Detalla el estado del arte en la modelación no lineal de muros de hormigón armado, discutiendo las formulaciones cinemáticas y los modelos constitutivos cíclicos de los materiales.
+  \item \textbf{Capítulo 3}, Configuración del Modelo Numérico y Validación Experimental: Describe en profundidad la estrategia de modelación implementada en OpenSees-STKO, los parámetros geométricos y materiales calibrados para reproducir el espécimen experimental de Orakcal (2006), y los resultados de las respuestas globales y locales del proceso de validación.
+  \item \textbf{Capítulo 4}, Planificación del Estudio Paramétrico y Generación Automatizada de Datos: Presenta el algoritmo desarrollado para la automatización de las simulaciones, los rangos seleccionados para cada variable de diseño estructural y la arquitectura tridimensional de la base de datos generada.
+  \item \textbf{Capítulo 5}, Resultados: Mostrar, analizar y discutir los principales resultados.
+  \item \textbf{Capítulo 6}, Conclusiones: Sintetiza los principales hallazgos técnicos del proyecto, evalúa las limitaciones de este y propone la ruta a seguir.  
+  
+\end{itemize}

@@ -1,0 +1,25 @@
+nodes 53 | x -840.0 .. 1090.0 | y 0.0 .. 0.0 | z 180.0 .. 4530.0
+ASDShellQ4 sec 15: 16 elems | x -285.0 .. 535.0 | z 870.0 .. 4530.0 | flags {'-noeas -drillingNL -local -1 0 0'}
+ASDShellQ4 sec 16: 8 elems | x -485.0 .. 735.0 | z 870.0 .. 4530.0 | flags {'-noeas -drillingNL -local -1 0 0'}
+ASDShellT3 sec 14: 36 elems | x -840.0 .. 1090.0 | z 180.0 .. 870.0 | flags {'-local -1 0 0'}
+fix: 7 nodes, dof masks {'1 1 1 1 1 1'}
+  fixed z levels: [180.0, 870.0]
+  z=180.0: 3 nodes, x -840.0 .. 1090.0
+  z=870.0: 4 nodes, x -840.0 .. 1090.0
+sp: 7 nodes, dofs {'1'}, z [4530.0], x [-485.0, -285.0, -80.0]..[735.0]
+mp constraints: 0 set()
+loads total fx 0.0 fy 0.0 fz -383519.8 | big loads: 3
+    (17, (125.0, 0.0, 4530.0), [0.0, 0.0, -124274.1])
+    (18, (330.0, 0.0, 4530.0), [0.0, 0.0, -124274.1])
+    (8, (-80.0, 0.0, 4530.0), [0.0, 0.0, -124274.1])
+pattern 4 series 1
+pattern 7 series 2
+stage increments: ['10', '2', '5000'] | total_duration {'1.0'}
+tests: ['NormDispIncr 0.0001 50  ', 'NormDispIncr 0.0001 50  ', 'NormDispIncr 1e-05 100 0 0']
+algorithms: ['KrylovNewton -maxDim 10', 'KrylovNewton', 'KrylovNewton -maxDim 10']
+constraints: {'Auto -autoPenalty 3'} | system {'Mumps -ICNTL14 200'}
+mass lines: 0 | exit present: True
+monitor X: [4] -> coords [(735.0, 0.0, 4530.0)]
+monitor Y: [3, 9, 10, 13, 14, 15, 31] -> coords [(735.0, 0.0, 870.0), (-840.0, 0.0, 870.0), (-480.0, 0.0, 870.0)]
+monitor scale ('X', '1.0', '0.0')
+monitor scale ('Y', '-1.0', '0.0')
