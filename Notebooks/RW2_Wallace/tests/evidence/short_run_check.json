@@ -1,0 +1,14 @@
+{
+  "scope": "Isolated scratch execution: full RW2 mesh/materials, ten gravity steps and two small cyclic steps only; not full protocol validation",
+  "return_code": 0,
+  "recorded_frames": [
+    2
+  ],
+  "terminal_progress": true,
+  "mesh_nodes": 3862,
+  "same_nodes_bricks_and_bars_as_existing_deck": true,
+  "same_concrete_material_commands": true,
+  "local_steel_columns": 673,
+  "steel_baseline_saved": true,
+  "mesh_snapshot_roundtrip": true
+}

@@ -5,7 +5,7 @@ Todos los archivos fuente se consultan únicamente en modo de lectura.
 | archivo | contenido | unidades | utilizado por |
 |---|---|---|---|
 | `../../../Bibliografia/Wallace/Orakcal_Massone_Wallace_2006_PEER-2006-07.pdf` | Orakcal, Massone & Wallace (2006), *Analytical Modeling of RC Walls for Predicting Flexural and Coupled Shear-Flexural Responses*, PEER 2006/07, 228 páginas. El Capítulo 7 describe RW2 (Thomsen & Wallace 1995) | SI | `rw2_solid_ladruno_embedment` (geometría, armaduras, materiales), carga axial |
-| `../ExperimentalData.txt` | Ensayo RW2, 674 filas, 2 columnas: desplazamiento superior, fuerza lateral | **m, tonf** | `rw2_solid_ladruno_embedment` (comparación con ensayo experimental) |
+| `../DatosExperimentales/ExperimentalData.csv` | Ensayo RW2, 674 filas, 2 columnas: desplazamiento superior, fuerza lateral | **m, tonf** | `rw2_solid_ladruno_embedment` (comparación con ensayo experimental) |
 
 ## Mapa de páginas de PEER 2006/07
 

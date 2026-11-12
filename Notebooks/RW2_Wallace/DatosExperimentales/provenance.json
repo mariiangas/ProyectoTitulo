@@ -1,0 +1,53 @@
+{
+  "source_pdf": "Bibliografia\\Wallace\\Orakcal_Massone_Wallace_2006_PEER-2006-07.pdf",
+  "sha256": "a5d779766f6fb8095f02c3c1a68d73cc4a41af56440abc51570f945f2393e2b7",
+  "method": "Vector coordinates of experimental Test paths, calibrated to printed axes; not original acquisition data.",
+  "approximate_graphical_precision": {
+    "position_mm": 1.0,
+    "strain": 0.0001,
+    "load_kN": 1.0,
+    "displacement_mm": 0.1
+  },
+  "exclusions": [
+    "Analysis traces",
+    "unreliable embedded-gage tensile readings as quantitative targets",
+    "embedded sensor after record 330",
+    "LVDT interpolation after record 515"
+  ],
+  "nominal_drifts_pct": [
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1,
+    1.5,
+    1,
+    1.5,
+    2,
+    2.5
+  ],
+  "profile_7_28_scope": "Dashed Test traces sampled at stories 1-4; linear interpolation across dash gaps; geometric origin at story 0.",
+  "profile_7_28_extraction": {
+    "pdf_drawing_indices": [
+      3,
+      4,
+      5
+    ],
+    "plot_x_limits_pdf": [
+      168.48,
+      476.76
+    ],
+    "displacement_limits_mm": [
+      -80,
+      80
+    ],
+    "story_y_pdf": [
+      317.88,
+      276.9,
+      235.92,
+      194.94,
+      154.02
+    ],
+    "notes": "Solid Analysis traces excluded. Top positive 0.25% marker association corrected by tracing the Test path."
+  }
+}

@@ -11,7 +11,7 @@ Espécimen **RW2**, Thomsen & Wallace (1995): muro rectangular (1220 x 3660 mm, 
 | barras del alma | #2 (db 6.35) @ 191, dos mallas, vertical y horizontal | PEER 607 Fig. 7.3a |
 | estribos | alambre de 4.76 mm @ 76 en los 1220 mm inferiores (`lw`) | PEER 607 sec. 7.1.1, Fig. 7.3a |
 | acero | `Hysteretic` por tipo de barra: #3 434 / 505 al 2 % / 641 al 10 %; #2 y alambre 448 / 519 / 586 al 8 %; pinching 0.6 / 0.8 | Tabla 7.1, PEER 2024/11 Tabla A.1; pinching de referencia |
-| protocolo | 40 puntos de inversión del registro de ensayo, incrementos de 0.5 mm | archivo de ensayo `ExperimentalData.txt` |
+| protocolo | 40 puntos de inversión del registro de ensayo, incrementos de 0.5 mm | archivo de ensayo `DatosExperimentales/ExperimentalData.csv` |
 
 Se ejecuta con el `OpenSeesMP` de Ladruno en **2 particiones** (apeGmsh asigna cada restricción al rango de su hexaedro anfitrión y declara como nodo fantasma el nodo de la barra cuando se requiere). Evidencia de cada valor: `context/`.
 

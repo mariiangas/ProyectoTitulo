@@ -1,0 +1,234 @@
+# wallace_0003 — RW2
+
+- Fecha: 2026-11-11T14:58:11-03:00
+- Estado: **completa**
+- Analisis completo verificado: **True**
+- Procedencia de parametros: valores congelados al generar el Tcl
+- Notas: 
+
+[Parametros completos](parametros.json) · [Tcl ejecutado](rw2_solid_ladruno_embedment.tcl) · [Registro](analisis.log)
+
+## Tipo de análisis
+
+**Estático no lineal cíclico (cuasiestático).**
+
+Primero se aplica la carga gravitacional y axial, que se mantiene constante durante la etapa lateral. Después se impone el historial cíclico de desplazamientos en la parte superior del muro mediante restricciones `sp` y una serie `Path`.
+
+Ambas etapas utilizan `analysis Static`. El avance del historial se realiza con `integrator LoadControl`; la demanda lateral se prescribe como desplazamiento. El tiempo registrado corresponde al pseudotiempo del análisis.
+
+- [Modelo/respuesta: rw2_solid_ladruno_embedment.ladruno](rw2_solid_ladruno_embedment.ladruno)
+- [Modelo/respuesta: modelo_malla.h5](modelo_malla.h5)
+
+## Hormigon
+
+| Variable | Valor utilizado |
+|---|---|
+| `ec` | 31030 |
+| `nu` | 0.2 |
+| `ft` | 2.03 |
+| `fc0` | 10 |
+| `fcr` | 10 |
+| `gt` | 0.14354324 |
+| `gc` | 36 |
+| `pscale_t` | 0.3 |
+| `pscale_c` | 0.3 |
+| `fcp_unconf` | 42.8 |
+| `ecp_unconf` | 0.0021 |
+| `fcp_conf` | 47.6 |
+| `ecp_conf` | 0.0033 |
+| `concrete_implex` | True |
+
+## Acero
+
+| Variable | Valor utilizado |
+|---|---|
+| `es` | 200000 |
+| `b_h` | 0.02 |
+| `fy3` | 434 |
+| `fu3` | 641 |
+| `eu3` | 0.1 |
+| `s2_3` | 505.32 |
+| `fy2` | 448 |
+| `fu2` | 586 |
+| `eu2` | 0.08 |
+| `s2_2` | 519.04 |
+| `pinch_x` | 0.6 |
+| `pinch_y` | 0.8 |
+| `steel_damage1` | 0 |
+| `steel_damage2` | 0 |
+| `steel_beta` | 0 |
+| `steel_e2` | 0.02 |
+
+## Modelacion
+
+| Variable | Valor utilizado |
+|---|---|
+| `max_size` | 200 |
+| `brick` | ssp |
+| `bar_refine` | 4 |
+| `k_perfect` | 1e+08 |
+| `record_all` | True |
+| `record_local` | True |
+| `nparts` | 1 |
+| `base_e` | 138225.49 |
+
+## Carga
+
+| Variable | Valor utilizado |
+|---|---|
+| `p_axial` | 372822.24 |
+| `gamma_c` | 2.3544e-05 |
+
+## Analisis
+
+| Variable | Valor utilizado |
+|---|---|
+| `d_step` | 0.5 |
+| `n_cyclic` | 5209 |
+| `n_gravity` | 10 |
+| `gravity_tol` | 0.0001 |
+| `gravity_max_iter` | 50 |
+| `cyclic_tol` | 0.0001 |
+| `cyclic_max_iter` | 100 |
+| `krylov_max_dim` | 10 |
+| `strategy_name` | penalty-stiff |
+
+## Medicion_local
+
+| Variable | Valor utilizado |
+|---|---|
+| `lvdt_z0_mm` | 0 |
+| `lvdt_length_mm` | 229 |
+| `steel_base_z_mm` | 25 |
+| `steel_story_z_mm` | 950 |
+| `concrete_gage_z_mm` | 92 |
+| `concrete_gage_length_mm` | 83 |
+| `rotation_height_mm` | 760 |
+| `story_height_mm` | 914.5 |
+| `shear_alpha` | 0.67 |
+| `strain_reference` | after_gravity |
+| `profile_cycle` | 1 |
+
+## Datos y figuras
+
+- [alineacion_reversiones.csv](datos/alineacion_reversiones.csv)
+- [cinematica_por_nivel.csv](datos/cinematica_por_nivel.csv)
+- [comparacion_7_28.csv](datos/comparacion_7_28.csv)
+- [comparacion_7_30.csv](datos/comparacion_7_30.csv)
+- [comparacion_7_31.csv](datos/comparacion_7_31.csv)
+- [historias_locales.csv](datos/historias_locales.csv)
+- [historias_lvdt_virtuales.csv](datos/historias_lvdt_virtuales.csv)
+- [local_concrete_damage_gp1.csv](datos/local_concrete_damage_gp1.csv)
+- [local_concrete_strain_gp1.csv](datos/local_concrete_strain_gp1.csv)
+- [local_concrete_stress_gp1.csv](datos/local_concrete_stress_gp1.csv)
+- [local_steel_stress_strain.csv](datos/local_steel_stress_strain.csv)
+- [respuesta_global.csv](datos/respuesta_global.csv)
+- [01_respuesta_global.pdf](figuras/01_respuesta_global.pdf)
+- [01_respuesta_global.png](figuras/01_respuesta_global.png)
+![01_respuesta_global](figuras/01_respuesta_global.png)
+
+- [02_ubicacion_sensores.pdf](figuras/02_ubicacion_sensores.pdf)
+- [02_ubicacion_sensores.png](figuras/02_ubicacion_sensores.png)
+![02_ubicacion_sensores](figuras/02_ubicacion_sensores.png)
+
+- [03_fig_7_30_hormigon.pdf](figuras/03_fig_7_30_hormigon.pdf)
+- [03_fig_7_30_hormigon.png](figuras/03_fig_7_30_hormigon.png)
+![03_fig_7_30_hormigon](figuras/03_fig_7_30_hormigon.png)
+
+- [04_fig_7_31_acero.pdf](figuras/04_fig_7_31_acero.pdf)
+- [04_fig_7_31_acero.png](figuras/04_fig_7_31_acero.png)
+![04_fig_7_31_acero](figuras/04_fig_7_31_acero.png)
+
+- [05_fig_7_32_historia_hormigon.pdf](figuras/05_fig_7_32_historia_hormigon.pdf)
+- [05_fig_7_32_historia_hormigon.png](figuras/05_fig_7_32_historia_hormigon.png)
+![05_fig_7_32_historia_hormigon](figuras/05_fig_7_32_historia_hormigon.png)
+
+- [06_fig_7_29_historias.pdf](figuras/06_fig_7_29_historias.pdf)
+- [06_fig_7_29_historias.png](figuras/06_fig_7_29_historias.png)
+![06_fig_7_29_historias](figuras/06_fig_7_29_historias.png)
+
+- [07_fig_9_3_flexion_corte.pdf](figuras/07_fig_9_3_flexion_corte.pdf)
+- [07_fig_9_3_flexion_corte.png](figuras/07_fig_9_3_flexion_corte.png)
+![07_fig_9_3_flexion_corte](figuras/07_fig_9_3_flexion_corte.png)
+
+- [08_fig_8_3_componentes.pdf](figuras/08_fig_8_3_componentes.pdf)
+- [08_fig_8_3_componentes.png](figuras/08_fig_8_3_componentes.png)
+![08_fig_8_3_componentes](figuras/08_fig_8_3_componentes.png)
+
+- [08b_fig_7_23_7_24_corte_por_nivel.pdf](figuras/08b_fig_7_23_7_24_corte_por_nivel.pdf)
+- [08b_fig_7_23_7_24_corte_por_nivel.png](figuras/08b_fig_7_23_7_24_corte_por_nivel.png)
+![08b_fig_7_23_7_24_corte_por_nivel](figuras/08b_fig_7_23_7_24_corte_por_nivel.png)
+
+- [09_fig_7_28_perfiles.pdf](figuras/09_fig_7_28_perfiles.pdf)
+- [09_fig_7_28_perfiles.png](figuras/09_fig_7_28_perfiles.png)
+![09_fig_7_28_perfiles](figuras/09_fig_7_28_perfiles.png)
+
+- [10_acero_tension_deformacion.pdf](figuras/10_acero_tension_deformacion.pdf)
+- [10_acero_tension_deformacion.png](figuras/10_acero_tension_deformacion.png)
+![10_acero_tension_deformacion](figuras/10_acero_tension_deformacion.png)
+
+- [11_hormigon_tension_deformacion.pdf](figuras/11_hormigon_tension_deformacion.pdf)
+- [11_hormigon_tension_deformacion.png](figuras/11_hormigon_tension_deformacion.png)
+![11_hormigon_tension_deformacion](figuras/11_hormigon_tension_deformacion.png)
+
+- [12_dano_hormigon.pdf](figuras/12_dano_hormigon.pdf)
+- [12_dano_hormigon.png](figuras/12_dano_hormigon.png)
+![12_dano_hormigon](figuras/12_dano_hormigon.png)
+
+
+## Alcance de las comparaciones locales
+
+- Datos experimentales digitalizados de los trazos Test del informe PEER 2006/07; no son archivos originales del ensayo.
+- Las derivas nominales se asignan por bloque del protocolo publicado, no dividiendo el desplazamiento corregido por la altura.
+- El protocolo actual coincide con la columna (b) de la Tabla 7.3: movimiento del pedestal descontado, corte incluido.
+- Fig. 7.30: promedio sobre 229 mm, inicio z=0 mm como supuesto configurable; interpolacion trilineal en la malla archivada.
+- Los perfiles experimentales no identifican el numero de ciclo; la seleccion numerica usa profile_cycle, guardado en la configuracion de postproceso.
+- Fig. 7.32: x=25 mm supuesto del borde sur; centro z=92 mm, longitud 83 mm; traccion del sensor embebido no confiable, falla en registro 330.
+- La separacion X usa alfa=0.67; en segundo nivel se muestra una estimacion corregida numerica, mientras el ensayo no disponia de WPs verticales para corregirlo.
+- Fig. 8.3(a) conserva solo la referencia experimental normalizada: no se inventa U_fy del ensayo para superponer unidades incompatibles.
+- Fig. 9.3: los trazos experimentales son ciclicos; las predicciones del informe eran monotonicas y no se incorporan como datos experimentales.
+- Acero interno disponible: True
+- Historias alineadas aproximadamente por reversiones: True; no se evalua error punto a punto de historias sin sincronizacion original.
+- Los mapas/indices de dano constituyen interpretacion numerica; no equivalen a una medicion experimental de dano ni ancho de fisura.
+
+## Indicadores descriptivos
+
+```json
+{
+  "global_metrics": {
+    "points": 5209,
+    "min_shear_kN": -158.80438644156877,
+    "max_shear_kN": 162.01897884845403,
+    "min_displacement_mm": -79.56999999999996,
+    "max_displacement_mm": 80.40235553843719
+  },
+  "comparison_metrics": {
+    "fig_7_30": {
+      "points": 21,
+      "mean_absolute_strain_error": 0.002844480283985939,
+      "rms_strain_error": 0.0041537437994182596,
+      "scope": "Descriptive errors against digitized LVDT profiles, subject to gauge-location assumptions."
+    }
+  }
+}
+```
+
+## Comandos de solucion emitidos
+
+```tcl
+constraints Transformation
+numberer RCM
+system UmfPack
+test NormDispIncr 0.0001 50 0 2
+algorithm KrylovNewton -maxDim 10
+integrator LoadControl 0.1
+analysis Static
+constraints Transformation
+numberer RCM
+system UmfPack
+test NormDispIncr 0.0001 100 0 2
+algorithm KrylovNewton -maxDim 10
+integrator LoadControl 0.0001919754271453254
+analysis Static
+set _apesees_rungs {{KrylovNewton -maxDim 10} {ModifiedNewton -initial} {KrylovNewton} {NewtonLineSearch -type Bisection}}
+```

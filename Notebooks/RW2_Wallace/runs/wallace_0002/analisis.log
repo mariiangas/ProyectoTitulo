@@ -1,0 +1,56 @@
+
+
+         OpenSees -- Open System For Earthquake Engineering Simulation
+                 Pacific Earthquake Engineering Research Center
+        Version 3.8.0 64-Bit (77c92193d22c2155245a340da00c6b6aea4475a5)
+
+      (c) Copyright 1999-2016 The Regents of the University of California
+                              All Rights Reserved
+  (Copyright and Disclaimer @ http://www.berkeley.edu/OpenSees/copyright.html)
+
+
+Using ASDConcrete3D - Developed by: Massimo Petracca, Guido Camata, ASDEA Software Technology
+APEGMSH_PROGRESS i=1 n=10 t=0.100000
+APEGMSH_PROGRESS i=2 n=10 t=0.200000
+APEGMSH_PROGRESS i=3 n=10 t=0.300000
+APEGMSH_PROGRESS i=4 n=10 t=0.400000
+APEGMSH_PROGRESS i=5 n=10 t=0.500000
+APEGMSH_PROGRESS i=6 n=10 t=0.600000
+APEGMSH_PROGRESS i=7 n=10 t=0.700000
+APEGMSH_PROGRESS i=8 n=10 t=0.800000
+APEGMSH_PROGRESS i=9 n=10 t=0.900000
+APEGMSH_PROGRESS i=10 n=10 t=1.000000
+APEGMSH_PROGRESS i=260 n=5209 t=0.049914
+APEGMSH_PROGRESS i=520 n=5209 t=0.099827
+WARNING: CTestNormDispIncr::test() - failed to converge 
+after: 100 iterations  current Norm: 35.6106 (max: 0.0001, Norm deltaR: 23086.5)
+AcceleratedNewton::solveCurrentStep() -The ConvergenceTest object failed in test()
+StaticAnalysis::analyze() - the Algorithm failed at step: 0 with domain at load factor 0.12248
+OpenSees > analyze failed, returned: -3 error flag
+apeGmsh strategy 'penalty-stiff': increment 638/5209 of stage 'cyclic' -> rung 1 (ModifiedNewton -initial)
+WARNING: CTestNormDispIncr::test() - failed to converge 
+after: 100 iterations  current Norm: 0.0551793 (max: 0.0001, Norm deltaR: 17902.1)
+ModifiedNewton::solveCurrentStep() -the ConvergenceTest object failed in test()
+StaticAnalysis::analyze() - the Algorithm failed at step: 0 with domain at load factor 0.12248
+OpenSees > analyze failed, returned: -3 error flag
+apeGmsh strategy 'penalty-stiff': increment 638/5209 of stage 'cyclic' -> rung 2 (KrylovNewton)
+APEGMSH_PROGRESS i=780 n=5209 t=0.149741
+APEGMSH_PROGRESS i=1040 n=5209 t=0.199654
+APEGMSH_PROGRESS i=1300 n=5209 t=0.249568
+APEGMSH_PROGRESS i=1560 n=5209 t=0.299482
+APEGMSH_PROGRESS i=1820 n=5209 t=0.349395
+APEGMSH_PROGRESS i=2080 n=5209 t=0.399309
+APEGMSH_PROGRESS i=2340 n=5209 t=0.449222
+APEGMSH_PROGRESS i=2600 n=5209 t=0.499136
+APEGMSH_PROGRESS i=2860 n=5209 t=0.549050
+APEGMSH_PROGRESS i=3120 n=5209 t=0.598963
+APEGMSH_PROGRESS i=3380 n=5209 t=0.648877
+APEGMSH_PROGRESS i=3640 n=5209 t=0.698791
+APEGMSH_PROGRESS i=3900 n=5209 t=0.748704
+APEGMSH_PROGRESS i=4160 n=5209 t=0.798618
+APEGMSH_PROGRESS i=4420 n=5209 t=0.848531
+APEGMSH_PROGRESS i=4680 n=5209 t=0.898445
+APEGMSH_PROGRESS i=4940 n=5209 t=0.948359
+APEGMSH_PROGRESS i=5200 n=5209 t=0.998272
+APEGMSH_PROGRESS i=5209 n=5209 t=1.000000
+Process Terminating 0

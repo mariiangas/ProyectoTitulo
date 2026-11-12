@@ -1,0 +1,33 @@
+{
+  "kind": "apegmsh.results.session",
+  "version": 1,
+  "saved_at": "2026-11-11T18:52:13.159811+00:00",
+  "results_path": "D:\\OneDrive\\Escritorio\\AHORA SI\\Notebooks\\RW2_Wallace\\runs\\wallace_0002\\rw2_solid_ladruno_embedment.ladruno",
+  "time": null,
+  "time_linked": true,
+  "selection": {
+    "kind": null
+  },
+  "panes": [
+    {
+      "pane": "mesh",
+      "id": "mesh-1",
+      "name": null,
+      "scope": null,
+      "deform": null,
+      "time": null,
+      "style": {
+        "mesh": true,
+        "outlines": true,
+        "nodes": false,
+        "gauss": false
+      },
+      "overlay": false,
+      "pick_target": "nodes",
+      "slots": {},
+      "legend_hidden": [],
+      "legend_placement": {},
+      "clips": []
+    }
+  ]
+}

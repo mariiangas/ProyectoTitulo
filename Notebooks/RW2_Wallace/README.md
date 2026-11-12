@@ -4,9 +4,16 @@ Espécimen **RW2**: muro rectangular con elementos de borde confinados, Thomsen 
 
 ## Contenido
 
+El notebook incluye los bloques **CREAR CORRIDA Y CONGELAR PARÁMETROS**,
+**COMPARACIONES LOCALES** y **EXPORTAR Y ACTUALIZAR FICHA**. Cada análisis nuevo
+se conserva en `runs/wallace_NNNN/`; consultar [historial](runs/indice.md) y
+[guía de corridas](runs/README.md). Los datos experimentales globales y locales y sus
+límites se documentan en [DatosExperimentales/README.md](DatosExperimentales/README.md).
+
 | archivo | modelo | guía |
 |---|---|---|
 | `rw2_solid_ladruno_embedment.ipynb` | sólido: `LadrunoBrick` + barras embebidas `CorotTruss`, datos del espécimen | `rw2_solid_ladruno_embedment.md` |
+| `DatosExperimentales/` | curva global y referencias locales del ensayo | `DatosExperimentales/README.md` |
 | `context/` | fuentes, geometría y armadura, materiales, supuestos, calibración | `context/README.md` |
 
 ## Modelo sólido — `rw2_solid_ladruno_embedment.ipynb`
@@ -115,8 +122,8 @@ Espécimen **RW2**: muro rectangular con elementos de borde confinados, Thomsen 
 | materiales uniaxiales | `Hysteretic` |
 | transformación geométrica | - |
 | integración de viga | - |
-| procesos | 2 rangos MPI (`OpenSeesMP`) |
-| constraints / numberer / system | `Transformation` / `ParallelRCM` / `Mumps -ICNTL14 200 -matrixType 0` |
+| procesos | 1 proceso (`OpenSeesMP`, Windows) |
+| constraints / numberer / system | `Transformation` / `RCM` / `UmfPack` |
 | algoritmo | `KrylovNewton -maxDim 10` |
 | escala de alternativas (cíclico) | `KrylovNewton -maxDim 10`, `ModifiedNewton -initial`, `KrylovNewton`, `NewtonLineSearch -type Bisection` |
 | etapa de gravedad | `LoadControl 0.1` x 10, `test NormDispIncr 0.0001 50 0 2` |

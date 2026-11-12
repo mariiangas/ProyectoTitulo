@@ -2,11 +2,11 @@
 
 | ítem | valor |
 |---|---|
-| archivo | `../ExperimentalData.txt` |
+| archivo | `../DatosExperimentales/ExperimentalData.csv` |
 | ensayo | RW2, Thomsen & Wallace (1995), carga lateral cíclica a 3.66 m con carga axial constante |
-| formato | 674 filas, 2 columnas separadas por espacios, sin encabezado |
-| columna 1 | desplazamiento superior, **m** (rango -0.0796 a 0.0805) |
-| columna 2 | fuerza lateral, **tonf** (rango -16.07 a 16.13) |
+| formato | 674 filas de datos, 2 columnas separadas por comas, con encabezado |
+| columna 1 | `displacement_m`, desplazamiento superior, **m** (rango -0.0796 a 0.0805) |
+| columna 2 | `force_tonf`, fuerza lateral, **tonf** (rango -16.07 a 16.13) |
 
 Conversión empleada por el cuaderno (a mm, kN):
 

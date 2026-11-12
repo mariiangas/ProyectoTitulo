@@ -1,0 +1,25 @@
+
+
+         OpenSees -- Open System For Earthquake Engineering Simulation
+                 Pacific Earthquake Engineering Research Center
+        Version 3.8.0 64-Bit (77c92193d22c2155245a340da00c6b6aea4475a5)
+
+      (c) Copyright 1999-2016 The Regents of the University of California
+                              All Rights Reserved
+  (Copyright and Disclaimer @ http://www.berkeley.edu/OpenSees/copyright.html)
+
+
+Using ASDConcrete3D - Developed by: Massimo Petracca, Guido Camata, ASDEA Software Technology
+APEGMSH_PROGRESS i=1 n=10 t=0.100000
+APEGMSH_PROGRESS i=2 n=10 t=0.200000
+APEGMSH_PROGRESS i=3 n=10 t=0.300000
+APEGMSH_PROGRESS i=4 n=10 t=0.400000
+APEGMSH_PROGRESS i=5 n=10 t=0.500000
+APEGMSH_PROGRESS i=6 n=10 t=0.600000
+APEGMSH_PROGRESS i=7 n=10 t=0.700000
+APEGMSH_PROGRESS i=8 n=10 t=0.800000
+APEGMSH_PROGRESS i=9 n=10 t=0.900000
+APEGMSH_PROGRESS i=10 n=10 t=1.000000
+APEGMSH_PROGRESS i=1 n=2 t=0.500000
+APEGMSH_PROGRESS i=2 n=2 t=1.000000
+Process Terminating 0
